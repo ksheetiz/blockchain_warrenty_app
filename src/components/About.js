@@ -5,7 +5,7 @@ const About = () => {
     <>
       {/* Work Here */}
       <div>
-        <h1>Hello World !</h1>
+        <h1>Hello About !</h1>
       </div>
 
       {/* Don't Touch This part */}

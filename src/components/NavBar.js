@@ -31,13 +31,13 @@ const NavBar = () => {
         </Box>
         <Spacer />
         <Box margin="0 15px" cursor="pointer">
-          <Link to="/about" className="link">
+          <Link to="/mint" className="link">
             <Text color="white">Mint</Text>
           </Link>
         </Box>
         <Spacer />
         <Box margin="0 15px" cursor="pointer">
-          <Link to="/about" className="link">
+          <Link to="/team" className="link">
             <Text color="white">Team</Text>
           </Link>
         </Box>
