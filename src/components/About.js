@@ -9,7 +9,7 @@ const About = () => {
       </div>
 
       {/* Don't Touch This part */}
-      <div className="moving-background"></div>
+      <div className="about-background"></div>
     </>
   );
 };
