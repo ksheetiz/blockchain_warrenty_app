@@ -1,5 +1,7 @@
-import { Box, Button, Flex, Text, Image, Link, Spacer } from "@chakra-ui/react";
+import { Box, Button, Flex, Text, Image, Spacer } from "@chakra-ui/react";
 import logo from "../assets/Shiba_Inu-removebg-preview.png";
+import { Link } from "react-router-dom";
+import "../css/navbar.css";
 
 const NavBar = () => {
   return (
@@ -7,7 +9,11 @@ const NavBar = () => {
       <Flex align="center">
         <Image src={logo} boxSize="5em" width="7em" />
         <Box>
-          <Text fontSize="1.5em">WARRENTY MINTER</Text>
+          <Link to="/" className="link">
+            <Text fontSize="1.5em" color="white">
+              WARRENTY MINTER
+            </Text>
+          </Link>
         </Box>
       </Flex>
       <Flex
@@ -17,15 +23,23 @@ const NavBar = () => {
         margin="-0.5em 0 0 0"
       >
         <Box margin="0 15px" cursor="pointer">
-          About
+          <Link to="/about" className="link">
+            <Text textDecoration="none" color="white">
+              About
+            </Text>
+          </Link>
         </Box>
         <Spacer />
         <Box margin="0 15px" cursor="pointer">
-          Mint
+          <Link to="/about" className="link">
+            <Text color="white">Mint</Text>
+          </Link>
         </Box>
         <Spacer />
         <Box margin="0 15px" cursor="pointer">
-          Team
+          <Link to="/about" className="link">
+            <Text color="white">Team</Text>
+          </Link>
         </Box>
         <Spacer />
         <Button
