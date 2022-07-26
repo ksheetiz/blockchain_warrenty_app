@@ -7,15 +7,41 @@
 /* CSS For The Background */
 
 .about-background {
-  z-index: -1;
+  z-index: -2;
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url(../assets/rm218-bb-07.jpg);
+  background-image: url(../assets/PicsArt_07-25-07.15.06.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-position: 40% 40%;
+  background-position: 60% 60%;
+}
+
+.heading{
+  margin-left: 36em;
+  margin-top: 4em;
+  margin-bottom: -5em;
+}
+
+.paragraph{
+  margin-top:9em;
+  margin-bottom: -11em;
+  margin-left: 45em;
+  margin-right: 6.5em;
+  line-height: 2em;
+  
+}
+.About{
+  box-shadow: inset 0 0 2000px rgb(69, 72, 236);
+  filter: blur(0px);
+  border-radius: 10px;
+  height: 650px;
+  width: 650px;
+  margin-left: 45em;
+  position: absolute;
+  z-index: -1;
+  top: 5em;
 }

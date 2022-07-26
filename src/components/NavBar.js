@@ -1,5 +1,5 @@
 import { Box, Button, Flex, Text, Image, Spacer } from "@chakra-ui/react";
-import logo from "../assets/Shiba_Inu-removebg-preview.png";
+import logo from "../assets/output-onlinepngtools.png";
 import { Link } from "react-router-dom";
 import "../css/navbar.css";
 
@@ -7,11 +7,11 @@ const NavBar = () => {
   return (
     <Flex justify="space-between" align="center" padding="1em">
       <Flex align="center">
-        <Image src={logo} boxSize="5em" width="7em" />
+        <Image src={logo} boxSize="3em" width="3em" />
         <Box>
           <Link to="/" className="link">
-            <Text fontSize="1.5em" color="white">
-              WARRENTY MINTER
+            <Text fontSize="1.5em" color="white" marginLeft="10">
+              WARRANTY MINTER
             </Text>
           </Link>
         </Box>
@@ -51,6 +51,7 @@ const NavBar = () => {
           fontFamily="inherit"
           padding="15px"
           margin="0 15px"
+          
           //   onClick={connectAccount}
         >
           Connect
