@@ -5,17 +5,21 @@ import NavBar from "./components/NavBar";
 import About from "./components/About";
 import Team from "./components/Team";
 import Mint from "./components/Mint";
+import {useState} from "react";
 
 function App() {
+
+  const [accounts, setAccounts] = useState([]);
+
   return (
     <div className="overlay">
       <div className="App">
-        <NavBar />
+        <NavBar accounts = {accounts} setAccounts = {setAccounts}/>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home accounts = {accounts}/>} />
           <Route path="/about" element={<About />} />
           <Route path="/team" element={<Team />} />
-          <Route path="/mint" element={<Mint />} />
+          <Route path="/mint" element={<Mint accounts = {accounts} setAccounts = {setAccounts}/>} />
         </Routes>
       </div>
     </div>

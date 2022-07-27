@@ -10,51 +10,51 @@ const Team = () => {
       <div className="team-name">
         <h1>TEAM SYNDICATE</h1>
       </div>
-      <div class="main">
+      <div className="main">
 
-         <div class="profile-card">
-           <div class="img">
+         <div className="profile-card">
+           <div className="img">
               <img src= {f3}/>
            </div>
-           <div class="caption">
+           <div className="caption">
               <h3>Ksheetiz Agrahari</h3>
               <p>Team Leader</p>
            </div>
-           {/* <div class="social-links">
-              <a href="#"><i class="fab fa-facebook"></i></a>
-              <a href="#"><i class="fab fa-instagram"></i></a>
-              <a href="#"><i class="fab fa-twitter"></i></a>
+           {/* <div className="social-links">
+              <a href="#"><i className="fab fa-facebook"></i></a>
+              <a href="#"><i className="fab fa-instagram"></i></a>
+              <a href="#"><i className="fab fa-twitter"></i></a>
            </div> */}
          </div>
 
 
-         <div class="profile-card">
-            <div class="img">
+         <div className="profile-card">
+            <div className="img">
                <img src= {f1}/>
             </div>
-            <div class="caption">
+            <div className="caption">
               <h3>Tushar Srivastav</h3>
               <p>Team Member</p>
             </div>
-            {/* <div class="social-links">
-              <a href="#"><i class="fab fa-facebook"></i></a>
-              <a href="#"><i class="fab fa-instagram"></i></a>
-              <a href="#"><i class="fab fa-twitter"></i></a>
+            {/* <div className="social-links">
+              <a href="#"><i className="fab fa-facebook"></i></a>
+              <a href="#"><i className="fab fa-instagram"></i></a>
+              <a href="#"><i className="fab fa-twitter"></i></a>
             </div> */}
           </div> 
 
-          <div class="profile-card">
-            <div class="img">
+          <div className="profile-card">
+            <div className="img">
                <img src= {f2}/>
             </div>
-            <div class="caption">
+            <div className="caption">
               <h3>Hridayansh Sah</h3>
               <p>Team Member</p>
             </div>
-            {/* <div class="social-links">
-              <a href="#"><i class="fab fa-facebook"></i></a>
-              <a href="#"><i class="fab fa-instagram"></i></a>
-              <a href="#"><i class="fab fa-twitter"></i></a>
+            {/* <div className="social-links">
+              <a href="#"><i className="fab fa-facebook"></i></a>
+              <a href="#"><i className="fab fa-instagram"></i></a>
+              <a href="#"><i className="fab fa-twitter"></i></a>
             </div> */}
           </div> 
 

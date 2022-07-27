@@ -4,17 +4,16 @@ const About = () => {
   return (
     <>
       {/* Work Here */}
-      
       <div className="heading">
           <h1>Hi</h1>
-          <p1>Hello everyone</p1>
+          <p>Hello everyone</p>
       </div>
       <div className="paragraph">
-          <p2>
+          <p>
             We are team SYNDICATE 4.O and we welcome you all to our website FlipKart Warranty Minter. This website is for the
             sellers who sell their products through FlipKart and want to generate their BLOCKCHAIN based warranty card 
             just with a single click. 
-          </p2>
+          </p>
       </div>
       <div className="About"></div>
       

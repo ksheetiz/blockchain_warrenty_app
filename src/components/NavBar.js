@@ -3,7 +3,17 @@ import logo from "../assets/output-onlinepngtools.png";
 import { Link } from "react-router-dom";
 import "../css/navbar.css";
 
-const NavBar = () => {
+const NavBar = ({accounts, setAccounts}) => {
+  const isConnected = Boolean(accounts[0]);
+
+  async function connectAccount() {
+    if (window.ethereum) {
+      const accounts = await window.ethereum.request({
+        method: "eth_requestAccounts",
+      });
+      setAccounts(accounts);
+    }
+  }
   return (
     <Flex justify="space-between" align="center" padding="1em">
       <Flex align="center">
@@ -42,22 +52,8 @@ const NavBar = () => {
           </Link>
         </Box>
         <Spacer />
-        <Button
-          backgroundColor="#D6517D"
-          borderRadius="5px"
-          boxShadow="0px 2px 2px 1px #0F0F0F"
-          color="white"
-          cursor="pointer"
-          fontFamily="inherit"
-          padding="15px"
-          margin="0 15px"
-          
-          //   onClick={connectAccount}
-        >
-          Connect
-        </Button>
-        {/* Connect */}
-        {/* {isConnected ? (
+        {/* connect Account */}
+         {isConnected ? (
           <Box margin="0 15px">Connected</Box>
         ) : (
           <Button
@@ -73,7 +69,7 @@ const NavBar = () => {
           >
             Connect
           </Button>
-        )} */}
+        )}
       </Flex>
     </Flex>
   );

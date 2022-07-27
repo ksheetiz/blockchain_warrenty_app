@@ -50,7 +50,8 @@
   font-family: sans-serif;
   width: 220px;
   height: 220px;
-  background: #fff;
+  background: rgba(109, 104, 104, 0.402);
+  backdrop-filter: blur(5px);
   /* background: inherit; */
   padding: 30px;
   border-radius: 50%;
@@ -88,6 +89,7 @@
 }
 .caption{
   text-align: center;
+  
   transform: translateY(-80px);
   opacity: 0;
   transition: .6s;
@@ -96,15 +98,16 @@
   opacity: 1;
 }
 .caption h3{
-  font-size: 21px;
-  font-family: sans-serif;
-  color: black;
+  font-size: 1em;
+  font-family: "Press Start 2P", "VT323";
+  line-height: 1.5rem;
+  color: aliceblue;
 }
 .caption p{
   font-size: 15px;
   color: #0c52a1;
-  font-family: sans-serif;
-  margin: 2px 0 9px 0;
+  font-family: "Press Start 2P", "VT323";
+  margin: 10px 0 9px 0;
 }
 .caption .social-links a{
   color: #333;
