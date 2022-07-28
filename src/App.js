@@ -6,6 +6,7 @@ import About from "./components/About";
 import Team from "./components/Team";
 import Mint from "./components/Mint";
 import {useState} from "react";
+import Steps from "./components/Steps";
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/team" element={<Team />} />
           <Route path="/mint" element={<Mint accounts = {accounts} setAccounts = {setAccounts}/>} />
+          <Route path="/steps" element={<Steps/>}/>
         </Routes>
       </div>
     </div>

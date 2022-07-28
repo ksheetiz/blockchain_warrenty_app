@@ -10,7 +10,7 @@ const Form1 = ({handleMint,name,serial,custWall,setName,setSerial,setCustWall}) 
         <input type="text" id="serial" placeholder="Serial Number" value={serial} onChange = {(e) => {
           setSerial(e.target.value);
         }}/>
-        <input type="text" id="cust" placeholder="Customer Waller Address" value={custWall} onChange = {(e) => {
+        <input type="text" id="cust" placeholder="Customer Wallet Address" value={custWall} onChange = {(e) => {
           setCustWall(e.target.value);
         }}/>
         <button className="mint" onClick={handleMint}>Mint Now !</button>

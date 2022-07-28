@@ -1,0 +1,13 @@
+.about-background {
+    z-index: -2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url(../assets/PicsArt_07-25-07.15.06.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: 60% 60%;
+  }

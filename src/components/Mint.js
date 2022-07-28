@@ -10,7 +10,7 @@ import Form2 from "./Form2";
 
 
 const Mint = ({ accounts, setAccounts }) => {
-  const WarrantyNFTaddress = "0x692b2AB80f8483D62FCdfB709fBdF8eE82d32a0e";
+  const WarrantyNFTaddress = "0xFEDBBD3F65aD232EBDf2eeB708a25547683279Fb";
   const isConnected = Boolean(accounts[0]);
 
   const [name, setName] = useState("");
