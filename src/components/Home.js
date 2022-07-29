@@ -22,6 +22,7 @@ const Home = ({accounts}) => {
               fontSize="2em"
               fontFamily="VT323"
               textShadow="0 2px 2px #000000"
+              color="white"
             >
               It's 2022. Can the Warranty card NFT's save the humans from
               destructive rampant NFT speculations ?

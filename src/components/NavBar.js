@@ -33,9 +33,17 @@ const NavBar = ({accounts, setAccounts}) => {
         margin="-0.5em 0 0 0"
       >
         <Box margin="0 15px" cursor="pointer">
-          <Link to="/about" className="link">
+          <Link to="/steps" className="link">
             <Text textDecoration="none" color="white">
-              About
+              Steps
+            </Text>
+          </Link>
+        </Box>
+        <Spacer />
+        <Box margin="0 15px" cursor="pointer">
+          <Link to="/gallery" className="link">
+            <Text textDecoration="none" color="white">
+              Gallery
             </Text>
           </Link>
         </Box>

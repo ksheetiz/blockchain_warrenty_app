@@ -7,21 +7,23 @@ import elec from "../assets/seller_option.gif"
 import { useState } from "react";
 import Form1 from "./Form1";
 import Form2 from "./Form2";
+import Form3 from "./Form3";
 
 
-const Mint = ({ accounts, setAccounts }) => {
-  const WarrantyNFTaddress = "0xFEDBBD3F65aD232EBDf2eeB708a25547683279Fb";
+const Mint = ({ accounts, setAccounts,  token, setToken}) => {
+  const WarrantyNFTaddress = "0x437A364Ca4315B230Ac68f24703A20b7D5D4c5Dd";
   const isConnected = Boolean(accounts[0]);
 
   const [name, setName] = useState("");
   const [serial, setSerial] = useState("");
   const [custWall, setCustWall] = useState("");
+  const [month, setMonth] = useState(0);
 
   //state For the First Option
   const [first, setfirst] = useState("");
   const [product, setProduct] = useState("");
+  const [option, setOption] = useState("");
 
-  const [token, setToken] = useState("");
   const [walletcust, setWalletcust] = useState("");
 
   const handleMint = async () => {
@@ -34,15 +36,33 @@ const Mint = ({ accounts, setAccounts }) => {
         signer
       );
       try {
-        const response = await contract.mint(name, serial);
+        const response = await contract.mint(name,product, serial, custWall,month);
         console.log("response : ", response);
       } catch (err) {
         console.log("Error : ", err);
       }
     }
   };
-  const handleTransfer = ()=>{
-    console.log("handletransfer !!");
+  const handleTransfer = async()=>{
+    if(window.ethereum){
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      const signer = provider.getSigner();
+      const contract = new ethers.Contract(
+        WarrantyNFTaddress,
+        warrantyNFT.abi,
+        signer
+      );
+      try{
+        const response = await contract.transferFrom(accounts[0],walletcust,token);
+        console.log("response : ",response);
+      }catch(err){
+        console.log("Error : ",err);
+      }
+    }
+  }
+
+  const handleburn = ()=>{
+    console.log("Burn");
   }
 
   return (
@@ -65,9 +85,20 @@ const Mint = ({ accounts, setAccounts }) => {
               </>
             ) : (
               <>
-                {first === "seller" ? (
+              {first === "seller" ? (
                 <>
-                {product === "" ? (<><img src= {elec}/>
+                {option === "" ? (
+                  <>
+                  <img src={person} />
+                <p>What do you want to do ?</p>
+                <button className="mint option1"onClick={() => {setOption("Mint");}}>Mint</button>
+                <button className="mint option1" onClick={() => {setOption("Burn");}}>Burn/Delete Warranty</button>
+                  </>
+                ) : (
+                <>
+                {option === "Mint" ? (
+                  <>
+                  {product === "" ? (<><img src= {elec}/>
                 <p>Select Your Product ?</p>
                   <button className="mint option1" onClick={()=>{setProduct("laptop")}}>PC/Laptop</button>
                   <button className="mint option1" onClick={()=>{setProduct("clothes")}}>Clothes</button>
@@ -81,10 +112,20 @@ const Mint = ({ accounts, setAccounts }) => {
                     setName={setName}
                     setSerial={setSerial}
                     setCustWall={setCustWall}
+                    month = {month}
+                    setMonth = {setMonth}
                   />
                   )}
+                  </>
+                  ) : (
+                  <Form3 token={token} setToken = {setToken} handleburn = {handleburn}/>
+                  )}
                 </>
-                ) : (<>
+                )}
+                </>
+              ):(
+              <>
+                
                     <Form2
                     token = {token}
                     walletcust = {walletcust}
@@ -92,7 +133,9 @@ const Mint = ({ accounts, setAccounts }) => {
                     setToken = {setToken}
                     setWalletcust = {setWalletcust}
                   />
-                </>)}
+                
+              </>
+              )}
               </>
             )}
           </div>
@@ -105,3 +148,5 @@ const Mint = ({ accounts, setAccounts }) => {
 };
 
 export default Mint;
+
+

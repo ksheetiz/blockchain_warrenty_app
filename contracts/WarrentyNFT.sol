@@ -15,6 +15,7 @@ contract WarrentyNFT is ERC721, ERC721URIStorage, Ownable{
         string _serial;
         uint _date;
         uint _repairs;
+        uint _months;
     }
     mapping (uint => Attr) attribute;
 
@@ -22,50 +23,48 @@ contract WarrentyNFT is ERC721, ERC721URIStorage, Ownable{
         contract_owner = owner();
     }
 
-    function generateCharacter(uint tokenId) private view returns (string memory) {
+     function generateCharacter(uint tokenId) public view returns (string memory) {
         bytes memory svg = abi.encodePacked(
             '<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin meet" viewBox="0 0 350 350">',
             '<style>.base { fill: coral; font-family: serif; font-size: 14px; }</style>',
             '<rect width="100%" height="100%" fill="black" />',
-            '<text x="50%" y="40%" class="base" dominant-baseline="middle" text-anchor="middle">',"Owner : ",attribute[tokenId]._name,'</text>',
-            '<text x="50%" y="50%" class="base" dominant-baseline="middle" text-anchor="middle">',"Serial Number : ",attribute[tokenId]._serial,'</text>',
+            '<text x="50%" y="40%" class="base" dominant-baseline="middle" text-anchor="middle">',"Warrenty Card",'</text>',
+            '<text x="50%" y="50%" class="base" dominant-baseline="middle" text-anchor="middle">', attribute[tokenId]._product,'</text>',
             '</svg>'
         );
         return string(
             abi.encodePacked(
+                "data:image/svg+xml;base64,",
                 Base64.encode(svg)
             )
         );
     }
 
-    function getTokenUri(uint tokenURI) private view returns(string memory){
+    function getTokenUri(uint tokenId) private view returns(string memory){
         bytes memory dataURI = abi.encodePacked(
             '{',
-                '"name": "Warranty Owner #', attribute[tokenURI]._name, '",',
-                '"description": "This warranty is for ', attribute[tokenURI]._product, '",',
-                '"image": "', generateCharacter(tokenURI), '"',
-                '"attributes": [',
-                '{'
-                '"trait_type": "Serial Number",',
-                '"value" : "',attribute[tokenURI]._serial,'"',
-                '}'
-                '{'
-                '"trait_type": "Repairs",',
-                '"value" : "',attribute[tokenURI]._serial,'"',
-                '}'
+                '"name": "Warrenty Owner :', attribute[tokenId]._name, '",',
+                '"description": "This is your warrenty card !!",',
+                '"image": "', generateCharacter(tokenId), '",',
+                '"attributes" : [',
+                    '{',
+                        '"trait_type" : "Serial",',
+                        '"value" : "',attribute[tokenId]._serial,'"',
+                    '}',
                 ']',
             '}'
         );
         return string(
             abi.encodePacked(
+                "data:application/json;base64,",
                 Base64.encode(dataURI)
             )
         );
     }
 
-    function mint(string memory _name, string memory _product, string memory _serial,address cust) public {
+    function mint(string memory _name, string memory _product, string memory _serial,address cust,uint _month) public {
         uint256 unique_id = block.timestamp;
-        attribute[unique_id] = Attr(_name,_product,_serial,block.timestamp,0);
+        attribute[unique_id] = Attr(_name,_product,_serial,block.timestamp,0,_month);
         _safeMint(msg.sender,unique_id);
         _setTokenURI(unique_id,getTokenUri(unique_id));
         transferFrom(msg.sender,cust,unique_id);
@@ -97,5 +96,19 @@ contract WarrentyNFT is ERC721, ERC721URIStorage, Ownable{
         require(_isApprovedOrOwner(_msgSender(), tokenId), "ERC721: caller is not token owner nor approved");
 
         _transfer(from, to, tokenId);
+    }
+    function ItemType(uint tokenId) public view returns(string memory){
+        return attribute[tokenId]._product;
+    }
+    function DateOfPurchase(uint tokenId) public view returns(uint256 ){
+        require(_isApprovedOrOwner(_msgSender(), tokenId), "ERC721: caller is not token owner nor approved");
+        return attribute[tokenId]._date;
+    }
+    function monthOfExpiry(uint tokenId) public view returns(uint256 ){
+        require(_isApprovedOrOwner(_msgSender(), tokenId), "ERC721: caller is not token owner nor approved");
+        return attribute[tokenId]._months;
+    }
+    function Repairs(uint tokenId) public view returns(uint256){
+        return attribute[tokenId]._repairs;
     }
 }
