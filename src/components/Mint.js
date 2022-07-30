@@ -11,7 +11,7 @@ import Form3 from "./Form3";
 
 
 const Mint = ({ accounts, setAccounts,  token, setToken}) => {
-  const WarrantyNFTaddress = "0x437A364Ca4315B230Ac68f24703A20b7D5D4c5Dd";
+  const WarrantyNFTaddress = "0x7F26B383CF7Ca700c9aD43b1b76f8d3AAC147433";
   const isConnected = Boolean(accounts[0]);
 
   const [name, setName] = useState("");
@@ -61,8 +61,21 @@ const Mint = ({ accounts, setAccounts,  token, setToken}) => {
     }
   }
 
-  const handleburn = ()=>{
-    console.log("Burn");
+  const handleburn = async ()=>{
+    if(window.ethereum){
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      const signer = provider.getSigner();
+      const contract = new ethers.Contract(
+        WarrantyNFTaddress,
+        warrantyNFT.abi,
+        signer
+      );
+      try{
+        await contract.Burn(token); 
+      }catch(err){
+        console.log("Error : ",err);
+      }
+    }
   }
 
   return (

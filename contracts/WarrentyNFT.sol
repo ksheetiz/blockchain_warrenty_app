@@ -83,7 +83,7 @@ contract WarrentyNFT is ERC721, ERC721URIStorage, Ownable{
         return super.tokenURI(tokenId);
     }
     function setRepairs(uint256 tokenId) public {
-        require(msg.sender == contract_owner,"Not an owner !!");
+
         attribute[tokenId]._repairs++;
         _setTokenURI(tokenId,getTokenUri(tokenId));
     }
@@ -110,5 +110,8 @@ contract WarrentyNFT is ERC721, ERC721URIStorage, Ownable{
     }
     function Repairs(uint tokenId) public view returns(uint256){
         return attribute[tokenId]._repairs;
+    }
+    function Burn(uint tokenId) public payable{
+        _burn(tokenId);
     }
 }

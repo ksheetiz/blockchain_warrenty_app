@@ -29,9 +29,17 @@ const NavBar = ({accounts, setAccounts}) => {
       <Flex
         justify="space-around"
         align="center"
-        width="40%"
+        width="60%"
         margin="-0.5em 0 0 0"
       >
+        <Box margin="0 15px" cursor="pointer">
+          <Link to="/repairs" className="link">
+            <Text textDecoration="none" color="white">
+              Repairs
+            </Text>
+          </Link>
+        </Box>
+        <Spacer />
         <Box margin="0 15px" cursor="pointer">
           <Link to="/steps" className="link">
             <Text textDecoration="none" color="white">

@@ -1,5 +1,4 @@
 import "../css/card.css";
-import mistake from "../assets/card_back.jpg";
 import { useNavigate } from "react-router-dom";
 import warrantyNFT from "../assets/WarrentyNFT.json";
 import { ethers } from "ethers";
@@ -9,16 +8,16 @@ import month2 from "../assets/12_month.jpg";
 
 const Card = ({nft,setToken}) =>{
 
-  const WarrantyNFTaddress = "0x437A364Ca4315B230Ac68f24703A20b7D5D4c5Dd";
+  const WarrantyNFTaddress = "0x7F26B383CF7Ca700c9aD43b1b76f8d3AAC147433";
   let navigate = useNavigate();
   const handleClick = () =>{
     setToken(nft.id.tokenId);
     navigate(`/mint`);
   }
-  const [humanTime, sethumanTime] = useState("");
   const [Item, setItem] = useState("");
   const [Date, setDate] = useState(0);
   const [Month, setMonth] = useState(0);
+  const [time , setTime] = useState("");
   const handleItem = async () =>{
     if (window.ethereum) {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -48,6 +47,9 @@ const Card = ({nft,setToken}) =>{
       try {
         const response = await contract.DateOfPurchase(nft.id.tokenId);
         setDate(ethers.BigNumber.from(response).toNumber());
+        var d = new window.Date(Date * 1000);
+        setTime(d.toString().slice(0,15));
+
       } catch (err) {
         console.log("Error : ", err);
       }
@@ -65,8 +67,6 @@ const Card = ({nft,setToken}) =>{
       try {
         const response = await contract.monthOfExpiry(nft.id.tokenId);
         setMonth(ethers.BigNumber.from(response).toNumber());
-        var date = new Date(Month);
-        console.log(date)
       } catch (err) {
         console.log("Error : ", err);
       }
@@ -91,7 +91,7 @@ const Card = ({nft,setToken}) =>{
         <div className="name">{nft.title}</div>
 
         <p>{nft.description}</p>
-        {/* <p>{Date}</p> */}
+        <p>{time}</p>
 
         <button onClick = {handleClick}>Transfer</button>
       </div>

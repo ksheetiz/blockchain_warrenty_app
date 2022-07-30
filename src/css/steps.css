@@ -1,3 +1,33 @@
+
+.steps-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-right: 12em;
+  margin-top: 1em;
+
+}
+h2{
+  color: #D6517D;
+}
+.steps-col{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: left;
+  width: 50vw;
+}
+
+.steps-text{
+  justify-content: left;
+  line-height: 3em;
+}
+
+.party{
+  width: 8em;
+  height: 8em;
+}
+/*Background CSS*/
 .about-background {
     z-index: -2;
     position: absolute;
@@ -5,7 +35,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url(../assets/PicsArt_07-25-07.15.06.jpg);
+    background-image: url(../assets/steps_back.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;

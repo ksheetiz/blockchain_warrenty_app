@@ -11,33 +11,32 @@ img {
     margin: 0 auto;
   
     /* Add empty space above the container (20% of the view height) */
-    margin-top: 20vh;
+    margin-top: 10vh;
 }
 .card {
     /* Change background color */
     background-color: rgba(109, 104, 104, 0.606);
-  
     /* Add border */
     border: 1px solid #bacdd8;
-  
     /* Add space between the border and the content */
-    padding: 8px;
+    padding: 0.5em;
   
     border-radius: 12px;
 }
 .tag {
     padding: 4px 8px;
+    margin-right: 0.5em;
     border: 1px solid #e5eaed;
     background-color: aliceblue;
     border-radius: 50px;
-    font-size: 0.7em;
+    font-size: 0.6rem;
     color: #788697;
   }
   
   /* Style div elements that have class equal to name */
   .name {
     color: gold;
-    font-size: 1em;
+    font-size: 0.8em;
     font-weight: 600;
   
     margin-top: 16px;
@@ -45,7 +44,7 @@ img {
   
   /* Style p element */
   p {
-    font-size: 1em;
+    font-size: 0.8em;
     color: black;
     padding-bottom: 1em;
     padding-top: 1em;
@@ -54,7 +53,7 @@ img {
   /* Style button element */
   button {
     border: none;
-    padding: 12px 24px;
+    padding: 0.5em 0.7em;
     border-radius: 50px;
     font-size: 1em;
     font-weight: 600;

@@ -7,6 +7,7 @@ import Team from "./components/Team";
 import Mint from "./components/Mint";
 import {useState} from "react";
 import Steps from "./components/Steps";
+import Repairs from "./components/Repairs";
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
           <Route path="/team" element={<Team />} />
           <Route path="/mint" element={<Mint accounts = {accounts} setAccounts = {setAccounts} token = {token} setToken = {setToken}/>} />
           <Route path="/steps" element={<Steps/>}/>
+          <Route path="/repairs" element={<Repairs accounts = {accounts} token = {token} setToken = {setToken}/>}/>
         </Routes>
       </div>
     </div>
