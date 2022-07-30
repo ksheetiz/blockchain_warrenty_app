@@ -1,0 +1,47 @@
+.steps-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-right: 15em;
+    margin-top: 1em;
+  }
+
+  .rewards-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    line-height: 2em;
+  }
+
+  .buttons{
+    display: flex;
+    flex-direction: row;
+    margin-top: 2em;
+    padding: 1em 1em 1em 1em;
+    height: 2em;
+  }
+
+  .text-body{
+    line-height: 5em;
+  }
+
+  .rewards-button{
+    background-color: #D6517D;
+    color: aliceblue;
+    font-family: "Press Start 2P", "VT323";
+    height: 2em;
+  }
+/*Background CSS*/
+.about-background {
+    z-index: -2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url(../assets/steps_back.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: 60% 60%;
+  }
