@@ -50,8 +50,11 @@ const Card = ({nft,setToken}) =>{
       try {
         const response = await contract.DateOfPurchase(nft.id.tokenId);
         setDate(ethers.BigNumber.from(response).toNumber());
-        var d = new window.Date(Date * 1000);
-        setTime(d.toString().slice(0,15));
+        
+        setTimeout(() => {
+          var d = new window.Date(Date * 1000);
+          setTime(d.toString().slice(0,15));
+        }, 5000); 
       } catch (err) {
         console.log("Error : ", err);
       }
