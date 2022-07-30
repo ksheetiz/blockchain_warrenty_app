@@ -116,7 +116,6 @@ const Card = ({nft,setToken}) =>{
         <div className="name">{nft.title}</div>
 
         <p>{nft.description}</p>
-        <p>{time}</p>
         <p>{expire}</p>
 
         <button onClick = {handleClick}>Transfer</button>
