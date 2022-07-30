@@ -6,7 +6,7 @@ const Form5 = ({token,settoken,handleShow,Repairs}) =>{
         <input type="text" id="serial" placeholder="Token Number" value={token} onChange = {(e) => {
           settoken(e.target.value);
         }}/>
-        <button className="mint" onClick={handleShow}>Repair Now !</button>
+        <button className="mint" onClick={handleShow}>Show Repairs !</button>
         {Repairs != -1 ? (<p>Repairs Done = {Repairs}</p>):(<></>)}
         </>)
 }

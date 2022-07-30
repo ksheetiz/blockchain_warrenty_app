@@ -8,7 +8,7 @@ import { ethers } from "ethers";
 import warrantyNFT from "../assets/WarrentyNFT.json";
 
 const Repairs = ({ accounts,token,setToken }) => {
-const WarrantyNFTaddress = "0x437A364Ca4315B230Ac68f24703A20b7D5D4c5Dd";
+const WarrantyNFTaddress = "0xE28A251130a257856Bf1786FC55DBeBBDCC6D104";
   const isConnected = Boolean(accounts[0]);
   const [who, setWho] = useState("");
   const [Repairs, setRepairs] = useState(-1);
@@ -41,7 +41,7 @@ const WarrantyNFTaddress = "0x437A364Ca4315B230Ac68f24703A20b7D5D4c5Dd";
           signer
         );
         try {
-          const response = await contract.setRepairs(token);
+          await contract.setRepairs(token);
         } catch (err) {
           console.log("Error : ", err);
         }
