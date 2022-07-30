@@ -1,6 +1,6 @@
 import Top_photo from "../assets/Shiba_Inu-removebg-preview.png";
 
-const Form3 = ({handleburn,setToken,token}) =>{
+const Form3 = ({handleburn,setToken,token,resBurn}) =>{
     return(
         <>
         <img src={Top_photo}/>

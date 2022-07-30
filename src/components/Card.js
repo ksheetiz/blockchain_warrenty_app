@@ -8,14 +8,16 @@ import month2 from "../assets/12_month.jpg";
 
 const Card = ({nft,setToken}) =>{
 
-  const WarrantyNFTaddress = "0x7F26B383CF7Ca700c9aD43b1b76f8d3AAC147433";
+  const WarrantyNFTaddress = "0xE28A251130a257856Bf1786FC55DBeBBDCC6D104";
   let navigate = useNavigate();
+  const [expire, setExpire] = useState("");
+  
   const handleClick = () =>{
     setToken(nft.id.tokenId);
     navigate(`/mint`);
   }
   const [Item, setItem] = useState("");
-  const [Date, setDate] = useState(0);
+  const [Date, setDate] = useState(1);
   const [Month, setMonth] = useState(0);
   const [time , setTime] = useState("");
   const handleItem = async () =>{
@@ -35,6 +37,7 @@ const Card = ({nft,setToken}) =>{
       }
     }
   }
+
   const handleDate = async () =>{
     if (window.ethereum) {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -49,12 +52,12 @@ const Card = ({nft,setToken}) =>{
         setDate(ethers.BigNumber.from(response).toNumber());
         var d = new window.Date(Date * 1000);
         setTime(d.toString().slice(0,15));
-
       } catch (err) {
         console.log("Error : ", err);
       }
     }
   }
+
   const handleMonth = async () =>{
     if (window.ethereum) {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -72,10 +75,29 @@ const Card = ({nft,setToken}) =>{
       }
     }
   }
+  const handleExpire = async () =>{
+    if (window.ethereum) {
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      const signer = provider.getSigner();
+      const contract = new ethers.Contract(
+        WarrantyNFTaddress,
+        warrantyNFT.abi,
+        signer
+      );
+      try {
+        const response = await contract.IsExpire(nft.id.tokenId);
+        setExpire(response);
+      } catch (err) {
+        console.log("Error : ", err);
+      }
+    }
+  }
+
   useEffect(() =>{
     handleItem();
     handleDate();
     handleMonth();
+    handleExpire();
   },[])
 
     return(
@@ -92,6 +114,7 @@ const Card = ({nft,setToken}) =>{
 
         <p>{nft.description}</p>
         <p>{time}</p>
+        <p>{expire}</p>
 
         <button onClick = {handleClick}>Transfer</button>
       </div>

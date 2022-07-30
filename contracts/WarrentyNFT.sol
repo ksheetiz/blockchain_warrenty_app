@@ -111,7 +111,31 @@ contract WarrentyNFT is ERC721, ERC721URIStorage, Ownable{
     function Repairs(uint tokenId) public view returns(uint256){
         return attribute[tokenId]._repairs;
     }
-    function Burn(uint tokenId) public payable{
+    function Burn(uint tokenId) public payable returns(string memory){
+        if(keccak256(abi.encodePacked((IsExpire(tokenId)))) == keccak256(abi.encodePacked(("Expired")))){
         _burn(tokenId);
+        return "Success";
+        }
+        else{
+            return "Not Expired";
+        }
+    }
+    function IsExpire(uint tokenId) public view returns(string memory){
+        if(attribute[tokenId]._months == 6){
+            if(block.timestamp > attribute[tokenId]._date + 182 days){
+                return "Expired";
+            }
+            else{
+                return "Not Expired";
+            }
+        }
+        else{
+            if(block.timestamp > attribute[tokenId]._date + 365 days){
+                return "Expired";
+            }
+            else{
+                return "Not Expired";
+            }
+        }
     }
 }

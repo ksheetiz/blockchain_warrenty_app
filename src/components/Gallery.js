@@ -14,7 +14,7 @@ const Gallery = ({accounts,setToken}) => {
     };
     const baseURL = "https://polygon-mumbai.g.alchemy.com/v2/SiyPDVAw_PWOPJ3r6rteWZHKPmI8jd3p/getNFTs/";
     const ownerAddr = accounts[0];
-    const contractAddr = "0x7F26B383CF7Ca700c9aD43b1b76f8d3AAC147433";
+    const contractAddr = "0xE28A251130a257856Bf1786FC55DBeBBDCC6D104";
     const fetchURL = `${baseURL}?owner=${ownerAddr}&contractAddresses[]=${contractAddr}`;
     let nfts= await fetch(fetchURL, requestOptions).then(data => data.json());
     if (nfts) {

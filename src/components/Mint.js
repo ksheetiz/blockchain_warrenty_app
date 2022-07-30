@@ -11,13 +11,15 @@ import Form3 from "./Form3";
 
 
 const Mint = ({ accounts, setAccounts,  token, setToken}) => {
-  const WarrantyNFTaddress = "0x7F26B383CF7Ca700c9aD43b1b76f8d3AAC147433";
+  const WarrantyNFTaddress = "0xE28A251130a257856Bf1786FC55DBeBBDCC6D104";
   const isConnected = Boolean(accounts[0]);
 
   const [name, setName] = useState("");
   const [serial, setSerial] = useState("");
   const [custWall, setCustWall] = useState("");
   const [month, setMonth] = useState(0);
+  const [resBurn, setresBurn] = useState("");
+  const [resMint,setresMint] = useState("");
 
   //state For the First Option
   const [first, setfirst] = useState("");
@@ -37,7 +39,7 @@ const Mint = ({ accounts, setAccounts,  token, setToken}) => {
       );
       try {
         const response = await contract.mint(name,product, serial, custWall,month);
-        console.log("response : ", response);
+        setresMint(response);
       } catch (err) {
         console.log("Error : ", err);
       }
@@ -71,7 +73,8 @@ const Mint = ({ accounts, setAccounts,  token, setToken}) => {
         signer
       );
       try{
-        await contract.Burn(token); 
+        const response = await contract.Burn(token); 
+        setresBurn(response);
       }catch(err){
         console.log("Error : ",err);
       }
@@ -127,11 +130,12 @@ const Mint = ({ accounts, setAccounts,  token, setToken}) => {
                     setCustWall={setCustWall}
                     month = {month}
                     setMonth = {setMonth}
+                    resMint = {resMint}
                   />
                   )}
                   </>
                   ) : (
-                  <Form3 token={token} setToken = {setToken} handleburn = {handleburn}/>
+                  <Form3 token={token} setToken = {setToken} handleburn = {handleburn} resBurn = {resBurn}/>
                   )}
                 </>
                 )}

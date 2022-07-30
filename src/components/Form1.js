@@ -1,6 +1,6 @@
 import Top_photo from "../assets/mint_page-removebg-preview.png";
 
-const Form1 = ({handleMint,name,serial,custWall,setName,setSerial,setCustWall,month,setMonth}) =>{
+const Form1 = ({handleMint,name,serial,custWall,setName,setSerial,setCustWall,month,setMonth,resMint}) =>{
     return(
         <>
         <img src={Top_photo}/>
