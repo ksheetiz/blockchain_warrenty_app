@@ -1,5 +1,7 @@
 import "../css/rewards.css";
 import { useState, useEffect } from "react";
+import f3 from "../assets/better_luck_next_time_rubber_stamp_over_white_background_88415080.jpg";
+import f2 from "../assets/istockphoto-1218623917-612x612.jpg";
 
 const Rewards = () => {
   const [userGuess, setuserGuess] = useState("");
@@ -45,23 +47,25 @@ const Rewards = () => {
               {userGuess === "Less" ? (
                 <>
                   {num <= 50 ? (
-                    <p>
-                      This is your Lucky Day Show this and ask seller to
-                      increase your Warrenty Duration
-                    </p>
+                    <div className="image">
+                    <img src= {f3}/>
+                    </div>
                   ) : (
-                    <p>Maybe Next Time !</p>
+                    <div className="image">
+                    <img src= {f2}/>
+                    </div>
                   )}
                 </>
               ) : (
                 <>
                   {num > 50 ? (
-                    <p>
-                      This is your Lucky Day Show this and ask seller to
-                      increase your Warrenty Duration
-                    </p>
+                    <div className="image">
+                    <img src= {f3}/>
+                    </div>
                   ) : (
-                    <p>Maybe Next Time !</p>
+                    <div className="image">
+                    <img src= {f2}/>
+                    </div>
                   )}
                 </>
               )}
@@ -77,6 +81,3 @@ const Rewards = () => {
 };
 
 export default Rewards;
-
-// (<>{userGuess === "More" && num > 50 ? (<p>This is your Lucky Day Show this and ask seller to increase your Warrenty Duration</p>):(<p>Maybe Next Time !</p>)}</>)
-// :(<>{userGuess === "Less" && num <= 50 ? (<p>This is your Lucky Day Show this and ask seller to increase your Warrenty Duration</p>):(<p>Maybe Next Time !</p>)}</>)}

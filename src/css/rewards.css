@@ -45,3 +45,18 @@
     background-attachment: fixed;
     background-position: 60% 60%;
   }
+    .image{
+    position: relative;
+  font-family: sans-serif;
+  width: 600px;
+  height: 600px;
+  /* background: rgba(109, 104, 104, 0.402); */
+  /* backdrop-filter: blur(5px); */
+  /* background: inherit; */
+  padding: 20px;
+  border-radius: 50%;
+  box-shadow: 0 0 22px #3336;
+  transition: .6s;
+  margin: 0 25px;
+  bottom: 11em;
+  }
